@@ -1,5 +1,6 @@
 package com.cybertek.tests;
 
+import com.cybertek.pages.VyTrackDashboardPage;
 import com.cybertek.pages.VyTrackLoginPage;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
@@ -14,6 +15,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class VyTrackLoginDDTTest {
@@ -30,52 +32,68 @@ public class VyTrackLoginDDTTest {
 
     @After
     public void tearDown(){
-        Driver.closeDriver();
+       // Driver.closeDriver();
 
     }
     @Test
 
     public  void loginDDTTest() throws IOException {
+        //open excel workbook
+        String filePath = "VyTrackQa2Users.xlsx";
+        FileInputStream in = new FileInputStream(filePath);
+        XSSFWorkbook workbook = new XSSFWorkbook(in);
 
-        XSSFWorkbook workbook = new XSSFWorkbook(filePath);
-        XSSFSheet datasheet = workbook.getSheet("data");
-//        System.out.println(workSheet.getRow(0).getCell(0)); // username
-//        System.out.println(workSheet.getRow(0).getCell(1)); // password
-        //find out number of rows in the worksheet
+        //we need workSheet
 
-        String usernameField  = String.valueOf(datasheet.getRow(0).getCell(0));
-        String passwordField  = String.valueOf(datasheet.getRow(0).getCell(1));
-        System.out.println(usernameField + ", and ," + passwordField);
-
-        String userName = String.valueOf(datasheet.getRow(1).getCell(0));
-        String password  = String.valueOf(datasheet.getRow(1).getCell(1));
-
-//        int rowCount = datasheet.getPhysicalNumberOfRows();
-//        System.out.println("rowCount = " + rowCount);
-         int usedRowsCount = datasheet.getLastRowNum();
-        XSSFCell result = datasheet.getRow(0).getCell(4);
+        XSSFSheet workSheet = workbook.getSheetAt(0);
 
 
+        /**
 
-    //     System.out.println("usedRowsCount = " + usedRowsCount);
+         String userName =  "user1";
+         String password = "UserUser123";
+         String firstName = "John";
+         String lastName = "Doe";
+         */
 
-        //loginPage.loginVyTrack(userName,password);
-        //print all users using a loop
-
-        for(int i = 1; i <=usedRowsCount; i++){
-            loginPage.loginVyTrack(datasheet.getRow(i).getCell(0).toString(),datasheet.getRow(i).getCell(1).toString());
-            loginPage.dropDownToggle.click();
-            loginPage.logoutBtn.click();
-                break;
+        for (int i = 1; i <= workSheet.getLastRowNum(); i++) {
 
 
+        String userName = workSheet.getRow(i).getCell(0).toString();
 
-            }
-        if(Driver.getDriver().getTitle().equals("Dashboard")){
-            result.toString().equals("pass");
+        String password = workSheet.getRow(i).getCell(1).toString();
 
+        String firstName = workSheet.getRow(i).getCell(2).toString();
+
+        String lastName = workSheet.getRow(i).getCell(3).toString();
+
+        VyTrackDashboardPage dashboardPage = new VyTrackDashboardPage();
+        loginPage.loginVyTrack(userName, password);
+
+        System.out.println("FullName = " + dashboardPage.fullName.getText());
+
+        String actualFullName = dashboardPage.fullName.getText();
+
+            XSSFCell resultCell = workSheet.getRow(i).getCell(4);
+        if (actualFullName.contains(firstName) && actualFullName.contains(lastName)) {
+            System.out.println("Pass");
+            resultCell.setCellValue("PASS");
+        } else {
+            System.out.println("Fail");
+            resultCell.setCellValue("FAIL");
         }
 
+        dashboardPage.logout();
+
+    }
+         // save changes in the excel file
+
+        FileOutputStream out = new FileOutputStream(filePath);
+        workbook.write(out);
+
+        in.close();
+        out.close();
+        workbook.close();
 
 
         }

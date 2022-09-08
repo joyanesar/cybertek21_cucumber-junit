@@ -1,5 +1,6 @@
 package com.cybertek.step_definitions;
 
+import com.cybertek.utilities.DBUtils;
 import com.cybertek.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
@@ -19,6 +20,16 @@ public class Hooks {
         System.out.println("Before setUp method is running before the scenario");
 
     }
+    @Before("@db")
+    public void setDb() {
+        System.out.println("Setting up database connection....");
+        DBUtils.createConnection();
+    }
+    @After
+    public void destroyDb(){
+        DBUtils.destroy();
+        System.out.println("CLOSING DATABASE CONNECTION......");
+    }
     @After
     public void tearDownScenario(Scenario scenario) {
         /**Scenario scenario : represents current running cucumber scenario
@@ -33,7 +44,7 @@ public class Hooks {
             scenario.attach(image, "image/png", scenario.getName());
         }
         System.out.println("AFTER - tearDown method is running after the scenario:" + scenario.getName());
-        Driver.closeDriver();
+      // Driver.closeDriver();
 
 
     }

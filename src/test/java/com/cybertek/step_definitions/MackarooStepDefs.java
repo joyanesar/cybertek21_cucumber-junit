@@ -4,6 +4,7 @@ import com.cybertek.pages.MockarooPage;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
+import com.cybertek.utilities.ExcelUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -84,23 +85,27 @@ public class MackarooStepDefs {
     @Then("following columns should be displayed in excel file:")
     public void followingColumnsShouldBeDisplayedInExcelFile (List<String> expectedColumns) throws Exception{
         //Open downloaded excel file
+        //open downloaded excel file
         String filePath = System.getProperty("user.home") + "/Downloads/MOCK_DATA.xlsx";
-        FileInputStream in = new FileInputStream(filePath);
-        XSSFWorkbook workbook = new XSSFWorkbook(in);
-        XSSFSheet worksheet = workbook.getSheetAt(0);
 
-        // get number of column names. top row and cells count
-        int excelHeadersCount = worksheet.getRow(0).getPhysicalNumberOfCells();
-
-        List<String> actualColumns = new ArrayList<>();
-
-        //loop and read columns names and store into Lis<String> actualColumns
-        for(int i = 0; i < excelHeadersCount; i++){
-            actualColumns.add(worksheet.getRow(0).getCell(i).toString());
-        }
-
-        Assert.assertEquals(expectedColumns,actualColumns);
-        
+        ExcelUtil excel = new ExcelUtil(filePath,"data");
+        Assert.assertEquals(expectedColumns,excel.getColumnsNames());
+//        FileInputStream in = new FileInputStream(filePath);
+//        XSSFWorkbook workbook = new XSSFWorkbook(in);
+//        XSSFSheet worksheet = workbook.getSheetAt(0);
+//
+//        // get number of column names. top row and cells count
+//        int excelHeadersCount = worksheet.getRow(0).getPhysicalNumberOfCells();
+//
+//        List<String> actualColumns = new ArrayList<>();
+//
+//        //loop and read columns names and store into Lis<String> actualColumns
+//        for(int i = 0; i < excelHeadersCount; i++){
+//            actualColumns.add(worksheet.getRow(0).getCell(i).toString());
+//        }
+//
+//        Assert.assertEquals(expectedColumns,actualColumns);
+//
     }
 
     @And("{int} rows of data should be displayed in excel file")

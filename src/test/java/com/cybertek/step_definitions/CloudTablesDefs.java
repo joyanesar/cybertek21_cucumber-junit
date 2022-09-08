@@ -8,11 +8,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-
-import javax.swing.*;
 
 public class CloudTablesDefs {
 

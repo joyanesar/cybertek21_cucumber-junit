@@ -6,11 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class VyTrackLoginPage {
-    public VyTrackLoginPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+public class VyTrackLoginPage extends BasePage{
 
-    }
+
+
     @FindBy(id = "prependedInput")
     public WebElement userName;
 
@@ -19,11 +18,11 @@ public class VyTrackLoginPage {
 
     @FindBy(id = "_submit")
     public WebElement signBtn;
-    @FindBy(xpath = "//a[@class='dropdown-toggle']")
-    public WebElement dropDownToggle;
 
-    @FindBy(linkText = "Logout")
-    public WebElement logoutBtn;
+    @FindBy(xpath = "//a[@class='dropdown-toggle']")
+     public WebElement dropDownToggle;
+
+
 
     public void loginVyTrack(String user, String pass){
         userName.sendKeys(user);
@@ -31,6 +30,5 @@ public class VyTrackLoginPage {
         signBtn.click();
     }
 
-    public void loginVyTrack(XSSFCell cell) {
-    }
+
 }

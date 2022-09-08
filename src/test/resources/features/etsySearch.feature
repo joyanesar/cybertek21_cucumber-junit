@@ -1,4 +1,4 @@
-@@regression #this is a tag
+@regression #this is a tag
 Feature: User etsy search
   As a user , when i enter search for item, I should see the result
 
