@@ -1,6 +1,5 @@
-
 @cloudtables
-Feature: DDT example with Cloudtables
+Feature: DDT example with Cloud tables
 
   Scenario Outline: Adding multiple users to the table
     Given User is on cloudTables homepage
@@ -9,7 +8,7 @@ Feature: DDT example with Cloudtables
     And User enters "<lastname>" to lastname field
     And User enters "<position>" to position field
     And User enters "<salary>" to salary field
-    And User clicks on create button
+    Then User clicks on create button
 
     Examples:
       |firstname|lastname|position|salary|

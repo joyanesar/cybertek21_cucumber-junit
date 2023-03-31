@@ -14,6 +14,9 @@ public class Login_Facebook  extends  BasePage{
     @FindBy(name = "login")
     public WebElement loginButton;
 
+    @FindBy(id = "facebook")
+    public WebElement facebook;
+
     public void login(String e, String p){
         emailInput.sendKeys(e);
         password.sendKeys(p);

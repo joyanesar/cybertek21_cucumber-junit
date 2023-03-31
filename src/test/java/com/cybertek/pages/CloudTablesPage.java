@@ -25,6 +25,7 @@ public class CloudTablesPage {
     @FindBy(id = "DTE_Field_office")
     public WebElement office;
 
+
     @FindBy(id = "DTE_Field_salary")
     public WebElement salary;
 

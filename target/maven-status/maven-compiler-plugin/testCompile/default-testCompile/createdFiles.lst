@@ -2,7 +2,6 @@ com\cybertek\pages\SpartanConfirmationPage.class
 com\cybertek\step_definitions\Hooks.class
 com\cybertek\step_definitions\Calculations_Steps_def.class
 com\cybertek\step_definitions\Etsy_Search_WoodenSpoon.class
-com\cybertek\step_definitions\Google_StepDefinitions.class
 com\cybertek\utilities\ConfigurationReader.class
 com\cybertek\pages\AddSpartanPage.class
 com\cybertek\step_definitions\ReRunDemoStepDefs.class
@@ -14,17 +13,18 @@ com\cybertek\pages\Lyft_Estimate_Page.class
 com\cybertek\step_definitions\MackarooStepDefs.class
 com\cybertek\pages\EtsyAllCategoriesPage.class
 com\cybertek\utilities\ExcelUtil.class
+com\cybertek\pages\Login_Facebook.class
 com\cybertek\tests\ExcelWrite.class
 com\cybertek\pages\MockarooPage.class
 com\cybertek\utilities\Driver.class
 com\cybertek\runners\FailedTestsRunner.class
 com\cybertek\utilities\DBUtils.class
 com\cybertek\pages\EtsyHomePage.class
+com\cybertek\step_definitions\Facebook_Step.class
 com\cybertek\step_definitions\add_spartan_StepDef.class
 com\cybertek\step_definitions\Dice_JobSearch_Def.class
 com\cybertek\runners\CukesRunner.class
 com\cybertek\pages\Calc_Page.class
-com\cybertek\pages\GoogleSearchPage.class
 com\cybertek\pages\VyTrackLoginPage.class
 com\cybertek\pages\BasePage.class
 com\cybertek\pages\CloudTablesPage.class

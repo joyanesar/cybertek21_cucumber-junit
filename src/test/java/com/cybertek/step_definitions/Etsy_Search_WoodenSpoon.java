@@ -29,7 +29,6 @@ public class Etsy_Search_WoodenSpoon {
     public void page_title_should_be_as_expected() {
 //       assertEquals("Etsy - Shop for handmade, vintage, custom, and unique gifts for everyone",driver.getTitle());
 
-
     }
     @When("User searches for wooden spoon")
     public void user_searches_for_wooden_spoon() {

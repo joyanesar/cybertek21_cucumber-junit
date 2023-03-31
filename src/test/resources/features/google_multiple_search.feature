@@ -2,9 +2,12 @@
 @google
 Feature: Passing multiple parameters to the step
 
-  Scenario: User searches for multiple items
+  Scenario Outline: User searches for multiple items
     Given User is on Google home page
-    Then User should be able to search for following:
+    Then User should be able to search for following "<books>":
+
+    Examples:
+     |books|
       |java|
       |selenium|
       |cucumber bdd|

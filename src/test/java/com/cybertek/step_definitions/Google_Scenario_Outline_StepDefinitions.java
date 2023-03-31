@@ -1,20 +1,15 @@
 package com.cybertek.step_definitions;
 
-import com.cybertek.pages.GoogleSearchPage;
-import com.cybertek.utilities.ConfigurationReader;
+import com.cybertek.pages.Google_Scenario_Outline_SearchPage;
 import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-public class Google_StepDefinitions {
-    GoogleSearchPage searchPage = new GoogleSearchPage();
+public class Google_Scenario_Outline_StepDefinitions {
+    Google_Scenario_Outline_SearchPage searchPage = new Google_Scenario_Outline_SearchPage();
     @Given("User is on Google home page")
     public void user_is_on_google_home_page() {
 
@@ -29,27 +24,27 @@ public class Google_StepDefinitions {
 
     }
 
-    @Then("User should see apple in the title")
-    public void user_should_see_apple_in_the_title() {
-
-        String actualTitle = Driver.getDriver().getTitle();
-        String expectedInTitle = "apple";
-
-        Assert.assertTrue(actualTitle.contains(expectedInTitle));
-
-    }
-
-    @Then("User should be able to search for following:")
-    public void userShouldBeAbleToSearchForFollowing(List<String> items) {
-        System.out.println("items = " + items);
-        //loop and search for each item on google
-        GoogleSearchPage searchPage = new GoogleSearchPage();
-
-        for (String eachItem : items) {
-            searchPage.searchBar.clear();
-            searchPage.searchBar.sendKeys(eachItem + Keys.ENTER);
-        }
-    }
+//    @Then("User should see apple in the title")
+//    public void user_should_see_apple_in_the_title() {
+//
+//        String actualTitle = Driver.getDriver().getTitle();
+//        String expectedInTitle = "apple";
+//
+//        Assert.assertTrue(actualTitle.contains(expectedInTitle));
+//
+//    }
+//
+//    @Then("User should be able to search for following:")
+//    public void userShouldBeAbleToSearchForFollowing(List<String> items) {
+//        System.out.println("items = " + items);
+//        //loop and search for each item on google
+//        GoogleSearchPage searchPage = new GoogleSearchPage();
+//
+//        for (String eachItem : items) {
+//            searchPage.searchBar.clear();
+//            searchPage.searchBar.sendKeys(eachItem + Keys.ENTER);
+//        }
+//    }
 
     @When("User searches for {string} capital")
     public void userSearchesForCapital(String countryName) {

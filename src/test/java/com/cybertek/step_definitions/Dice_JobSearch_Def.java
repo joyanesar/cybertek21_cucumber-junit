@@ -5,6 +5,7 @@ import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,9 @@ public class Dice_JobSearch_Def {
     public void user_is_on_dice_homepage() {
         System.out.println("USER IS ON DICE HOMEPAGE...");
         Driver.getDriver().get(ConfigurationReader.getProperty("dice.url"));
+        Assert.assertEquals(Driver.getDriver().getTitle(),"Find Jobs in Technology");
+
+
     }
 
     @When("User enters keyword and zipcode")
@@ -33,7 +37,7 @@ public class Dice_JobSearch_Def {
         System.out.println("USER SHOULD SEE SEARCH RESULTS...");
         WebElement jobCount = Driver.getDriver().findElement(By.xpath("//span[@data-cy='search-count']"));
         System.out.println("JOB COUNT = " + jobCount.getText());
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }
 

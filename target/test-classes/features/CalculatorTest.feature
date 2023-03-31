@@ -1,4 +1,4 @@
-@regression
+@p
 Feature: Calculator Tests
 
   Background:

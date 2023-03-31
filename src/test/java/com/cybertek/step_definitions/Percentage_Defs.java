@@ -1,16 +1,13 @@
 package com.cybertek.step_definitions;
 
 import com.cybertek.pages.Calculat.PercentageCalculator;
-import com.cybertek.pages.GoogleSearchPage;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.sl.In;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
 

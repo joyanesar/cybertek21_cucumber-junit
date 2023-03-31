@@ -1,12 +1,10 @@
 package com.cybertek.step_definitions;
-
 import com.cybertek.pages.Calc_Page;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-
 public class Calculations_Steps_def {
         Calc_Page cal = new Calc_Page();
     @Given("User is on calculator page")
@@ -25,7 +23,12 @@ public class Calculations_Steps_def {
     public void result_should_be_displayed(String expectedResult) {
         System.out.println("Result should be " + expectedResult);
        String actualResult = cal.result.getText().trim();
+        System.out.println("Title ==== " + Driver.getDriver().getTitle());
         Assert.assertEquals(expectedResult,actualResult);
+        String actualTitle = Driver.getDriver().getTitle();
+        String expectedTitle = "Calculator.net: Free Online Calculators - Math, Fitness, Finance, Science";
+
+        Assert.assertEquals(actualTitle,expectedTitle);
     }
 
 

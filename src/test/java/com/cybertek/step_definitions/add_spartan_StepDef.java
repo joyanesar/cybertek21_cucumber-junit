@@ -1,5 +1,4 @@
 package com.cybertek.step_definitions;
-
 import com.cybertek.pages.AddSpartanPage;
 import com.cybertek.pages.SpartanConfirmationPage;
 import com.cybertek.pages.SpartanHomePage;
@@ -11,7 +10,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.it.Ma;
 import org.junit.Assert;
 
 import java.util.HashMap;

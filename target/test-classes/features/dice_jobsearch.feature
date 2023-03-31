@@ -1,4 +1,4 @@
-@regression
+@regressio
 Feature: Dice job search
   As a user, I should be able to search for jobs using a
   keyword and zipcode, then see results.

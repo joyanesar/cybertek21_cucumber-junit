@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GoogleSearchPage {
+public class Google_Scenario_Outline_SearchPage {
 
 
-    public GoogleSearchPage(){
+    public Google_Scenario_Outline_SearchPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(name = "q")
